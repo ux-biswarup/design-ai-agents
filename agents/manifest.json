@@ -1,0 +1,9 @@
+{
+  "agents": [
+    {
+      "slug": "design-system",
+      "name": "Design System",
+      "description": "Helps design teams build and maintain design systems: tokens, components, and documentation."
+    }
+  ]
+}

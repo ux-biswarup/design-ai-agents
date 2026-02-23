@@ -1,0 +1,4 @@
+node_modules/
+
+# Temporarily ignore in-development UX research agent
+agents/ux-research/

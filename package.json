@@ -1,0 +1,26 @@
+{
+  "name": "design-ai-agents",
+  "version": "1.0.0",
+  "description": "Installable Cursor AI agents (rules + subagents) for design systems and UX research",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ux-biswarup/design-ai-agents.git"
+  },
+  "bin": {
+    "design-ai-agents": "./scripts/install.js"
+  },
+  "files": [
+    "agents",
+    "scripts"
+  ],
+  "keywords": [
+    "cursor",
+    "ai",
+    "agents",
+    "design-system",
+    "ux-research",
+    "rules",
+    "mdc"
+  ]
+}

@@ -1,0 +1,49 @@
+---
+description: "Design system orientation rule — entry point for [project_name] component library standards covering components, styling, tokens, accessibility, Storybook, and React context. References 9 specialized sub-rules."
+globs: "**/components/**/*,**/design-system/**/*,**/design-tokens/**/*,**/tokens/**/*,**/.storybook/**/*,**/stories/**/*,**/styles/**/*,**/theme/**/*"
+alwaysApply: false
+---
+
+# [project_name] Design System — Standards Overview
+
+Nine specialized sub-rules handle specific file types and concerns. Cursor automatically activates the relevant sub-rule based on the file being edited.
+
+## Sub-Rules Reference
+
+| Sub-Rule | Activates On | Covers |
+|---|---|---|
+| `accessibility-guidelines` | `components/**/*.tsx` | WCAG AA, semantic HTML, ARIA roles, keyboard navigation, focus management |
+| `base-components` | `components/ui/**/*.tsx`, `components/base/**/*.tsx` | BaseInput, BaseList, BaseListItem, InfoText, FieldLabel — APIs and accessibility |
+| `component-internal-structure` | `components/**/*.tsx`, `components/**/*.module.scss` | Import order, `forwardRef`, CSS Module naming, sub-component organization |
+| `layout-components` | `components/layout/**/*.tsx`, `components/**/*.tsx` | Box + Flex — props over CSS, spacing tokens, layout patterns |
+| `new-component-implementation` | `components/**/*.tsx` | End-to-end workflow: types → component → styles → exports → tests → stories |
+| `react-context` | Context files, providers, theme files | Context structure, Provider pattern, custom consumer hooks |
+| `storybook-stories` | `*.stories.tsx`, `*.stories.ts` | CSF3 format, MDX docs, story conventions, decorators |
+| `styling-conventions` | `*.module.scss`, `*.module.css`, style directories | SCSS Modules, `[style_package]` tokens, typography, anti-patterns |
+| `color-token-management` | `packages/style/**/*` | Adding/modifying color tokens across all theme files, build process |
+
+## Core Principles
+
+### Tokens over raw values
+
+```css
+/* ✅ Use semantic tokens */
+color: var(--primary-text-color);
+margin-bottom: var(--space-8);
+
+/* ❌ Never hardcode values in components */
+color: #1a1a1a;
+margin-bottom: 8px;
+```
+
+### Component anatomy
+
+Every component requires: `ComponentName.tsx` + `ComponentName.types.ts` + `ComponentName.module.scss` + `index.ts` + `__tests__/` + `__stories__/`.
+
+### Props over CSS for layout
+
+Prefer `<Box>` and `<Flex>` from `@[project_folder]/core` over custom CSS for spacing, borders, and flexbox layouts.
+
+### Accessibility first
+
+All interactive components must be keyboard navigable, support ARIA attributes, and meet WCAG AA. See the `accessibility-guidelines` sub-rule.
